@@ -1,0 +1,54 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "AccountRef1"
+            },
+            "Name":"Huddlestone",
+            "AccountNumber":"380664964150370",
+            "Active__c":"Yes",
+            "Type":"LWC Account"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "AccountRef2"
+            },
+            "Name":"Olivera",
+            "AccountNumber":"372408970043318",
+            "Active__c":"Yes",
+            "Type":"LWC Account"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "AccountRef3"
+            },
+            "Name":"Readman",
+            "AccountNumber":"599784084347781",
+            "Active__c":"Yes",
+            "Type":"LWC Account"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "AccountRef4"
+            },
+            "Name":"Bellows",
+            "AccountNumber":"413978325016115",
+            "Active__c":"Yes",
+            "Type":"LWC Account"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "AccountRef5"
+            },
+            "Name":"Livesley",
+            "AccountNumber":"591537181445869",
+            "Active__c":"Yes",
+            "Type":"LWC Account"
+        }
+    ]
+}

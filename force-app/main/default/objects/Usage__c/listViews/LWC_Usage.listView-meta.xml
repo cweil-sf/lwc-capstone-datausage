@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LWC_Usage</fullName>
+    <columns>NAME</columns>
+    <columns>Asset__c</columns>
+    <columns>Allotted_D__c</columns>
+    <columns>Allotted_S__c</columns>
+    <columns>Allotted__c</columns>
+    <columns>Data__c</columns>
+    <columns>SMS__c</columns>
+    <columns>Voice_Mins__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>LWC Usage</label>
+</ListView>

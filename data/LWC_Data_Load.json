@@ -1,0 +1,32 @@
+[
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Account_Data.json"]
+    },
+    {
+        "sobject": "Billing_Account__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["BAN_Data.json"] 
+    },
+    {
+        "sobject": "Plan__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Plan_Data.json"] 
+    },
+    {
+        "sobject": "Asset",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Asset_Data.json"] 
+    },
+    {
+        "sobject": "Usage__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Usage_Data.json"] 
+    }
+]

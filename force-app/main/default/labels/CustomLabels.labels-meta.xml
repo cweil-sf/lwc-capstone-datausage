@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Data_Usage_Banner_Error_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Data Usage Banner Error Title</shortDescription>
+        <value>An unexpected error occurred while retrieving the usage. Please refresh or report the issue.</value>
+    </labels>
+    <labels>
+        <fullName>Data_Usage_Banner_Info_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Data Usage Banner Info Title</shortDescription>
+        <value>Usage is not available. Please refresh or check back later.</value>
+    </labels>
+</CustomLabels>
