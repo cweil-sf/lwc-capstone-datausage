@@ -80,10 +80,6 @@
 	</types>
 	<types>
 		<members>dataUsage</members>
-		<members>dataUsageDetails</members>
-		<members>dataUsageLineDetails</members>
-		<members>dataUsageServices</members>
-		<members>notification</members>
 		<name>LightningComponentBundle</name>
 	</types>
 	<types> 
