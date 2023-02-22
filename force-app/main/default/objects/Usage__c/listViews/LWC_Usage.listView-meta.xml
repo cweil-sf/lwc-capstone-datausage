@@ -3,12 +3,10 @@
     <fullName>LWC_Usage</fullName>
     <columns>NAME</columns>
     <columns>Asset__c</columns>
-    <columns>Allotted_D__c</columns>
-    <columns>Allotted_S__c</columns>
-    <columns>Allotted__c</columns>
-    <columns>Data__c</columns>
-    <columns>SMS__c</columns>
-    <columns>Voice_Mins__c</columns>
+    <columns>Current_Usage__c</columns>
+    <columns>Usage_Type__c</columns>
+    <columns>Allotted_Usage__c</columns>
+    <columns>Unit_of_Measure__c</columns>
     <filterScope>Everything</filterScope>
     <label>LWC Usage</label>
 </ListView>

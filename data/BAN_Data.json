@@ -8,8 +8,7 @@
             },
             "Name":"145464724944346",
             "Billing_Account_Number__c":"145464724944346",
-            "Current_Billing_Cycle_Start_Date__c":"2021-07-15",
-            "Current_Billing_Cycle_End_Date__c":"2021-08-15",
+            "Account_Type__c":"Wireless",
             "Account__c":"@AccountRef1"
         },
         {
@@ -19,8 +18,7 @@
             },
             "Name":"549124441466431",
             "Billing_Account_Number__c":"549124441466431",
-            "Current_Billing_Cycle_Start_Date__c":"2021-07-15",
-            "Current_Billing_Cycle_End_Date__c":"2021-08-15",
+            "Account_Type__c":"Wireless",
             "Account__c":"@AccountRef2"
         },
         {
@@ -30,8 +28,7 @@
             },
             "Name":"285092999253875",
             "Billing_Account_Number__c":"285092999253875",
-            "Current_Billing_Cycle_Start_Date__c":"2021-07-15",
-            "Current_Billing_Cycle_End_Date__c":"2021-08-15",
+            "Account_Type__c":"Wireless",
             "Account__c":"@AccountRef3"
         },
         {
@@ -41,8 +38,7 @@
             },
             "Name":"844565823844940",
             "Billing_Account_Number__c":"844565823844940",
-            "Current_Billing_Cycle_Start_Date__c":"2021-07-15",
-            "Current_Billing_Cycle_End_Date__c":"2021-08-15",
+            "Account_Type__c":"Wireless",
             "Account__c":"@AccountRef4"
         },
         {
@@ -52,8 +48,7 @@
             },
             "Name":"162614858555948",
             "Billing_Account_Number__c":"162614858555948",
-            "Current_Billing_Cycle_Start_Date__c":"2021-07-15",
-            "Current_Billing_Cycle_End_Date__c":"2021-08-15",
+            "Account_Type__c":"Wireless",
             "Account__c":"@AccountRef5"
         }
     ]

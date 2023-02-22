@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Allotted_D__c</fullName>
+    <fullName>Current_Usage__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Field to store the amount of usage for data, text, or talk. The Usage Type field will determine the type of usage this is.</description>
     <externalId>false</externalId>
-    <label>Allotted (D)</label>
+    <label>Current Usage</label>
     <precision>18</precision>
-    <required>false</required>
+    <required>true</required>
     <scale>2</scale>
     <trackTrending>false</trackTrending>
     <type>Number</type>

@@ -12,16 +12,8 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Billing_Account_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Current_Billing_Cycle_Start_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Current_Billing_Cycle_End_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -69,8 +61,6 @@
         <fields>NAME</fields>
         <fields>Name__c</fields>
         <fields>Product__c</fields>
-        <fields>Account_Type__c</fields>
-        <fields>CTNs_on_Plan__c</fields>
         <fields>Plan_Effective_Date__c</fields>
         <relatedList>Plan__c.Billing_Account_Number__c</relatedList>
     </relatedLists>

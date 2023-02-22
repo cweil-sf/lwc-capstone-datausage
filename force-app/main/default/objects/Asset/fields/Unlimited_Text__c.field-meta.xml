@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Is_Primary__c</fullName>
+    <fullName>Unlimited_Text__c</fullName>
     <defaultValue>false</defaultValue>
+    <description>Field to track if Text is unlimited for this subscriber</description>
     <externalId>false</externalId>
-    <label>Is Primary</label>
+    <label>Unlimited Text</label>
     <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>

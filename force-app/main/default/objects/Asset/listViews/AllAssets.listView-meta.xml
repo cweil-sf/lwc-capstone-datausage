@@ -8,6 +8,8 @@
     <columns>ASSET.STATUS</columns>
     <columns>Manufacturer__c</columns>
     <columns>Make_and_Model__c</columns>
+    <columns>Plan__c</columns>
+    <columns>Phone_Number_Display__c</columns>
     <filterScope>Everything</filterScope>
     <label>All Assets</label>
 </ListView>

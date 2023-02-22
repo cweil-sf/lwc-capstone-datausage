@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Is_Unlimited_V__c</fullName>
+    <fullName>Unlimited_Data__c</fullName>
     <defaultValue>false</defaultValue>
+    <description>Field to track if Data is unlimited for this subscriber</description>
     <externalId>false</externalId>
-    <label>Is Unlimited (V)?</label>
-    <trackTrending>false</trackTrending>
+    <label>Unlimited Data</label>
+    <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>

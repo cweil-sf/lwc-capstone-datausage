@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Data__c</fullName>
+    <fullName>Allotted_Usage__c</fullName>
+    <description>Field used to store the total usage assigned for that subscriber in the plan.</description>
     <externalId>false</externalId>
-    <label>Data (GB)</label>
+    <label>Allotted Usage</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
