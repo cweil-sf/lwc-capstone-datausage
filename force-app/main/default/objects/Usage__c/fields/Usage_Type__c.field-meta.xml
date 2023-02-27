@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Account_Type__c</fullName>
+    <fullName>Usage_Type__c</fullName>
+    <description>Type of usage for this record. Values can be Data, Text, Talk</description>
     <externalId>false</externalId>
-    <label>Account Type</label>
-    <required>false</required>
+    <label>Usage Type</label>
+    <required>true</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
         <valueSetDefinition>
-            <sorted>true</sorted>
+            <sorted>false</sorted>
             <value>
-                <fullName>AT&amp;T TV</fullName>
+                <fullName>Data</fullName>
                 <default>false</default>
-                <label>AT&amp;T TV</label>
+                <label>Data</label>
             </value>
             <value>
-                <fullName>Direct TV</fullName>
+                <fullName>Text</fullName>
                 <default>false</default>
-                <label>Direct TV</label>
+                <label>Text</label>
             </value>
             <value>
-                <fullName>Uverse</fullName>
+                <fullName>Talk</fullName>
                 <default>false</default>
-                <label>Uverse</label>
-            </value>
-            <value>
-                <fullName>Wireless</fullName>
-                <default>false</default>
-                <label>Wireless</label>
+                <label>Talk</label>
             </value>
         </valueSetDefinition>
     </valueSet>

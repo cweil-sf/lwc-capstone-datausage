@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>*</members>
+		<members>Asset.Asset_Compact_Layout</members>
+		<members>Billing_Account__c.Billing_Account_Compact_Layout</members>
+		<members>Plan__c.Plan_Compact_Layout</members>
+		<members>Usage__c.Usage_Compact_Layout</members>
 		<name>CompactLayout</name>
 	</types>
     <types>
@@ -14,44 +17,33 @@
 	</types>
 	<types>
 		<members>Asset.Device_Type__c</members>
-		<members>Asset.Device__c</members>
-		<members>Asset.Is_Deleted__c</members>
-		<members>Asset.Is_Primary__c</members>
 		<members>Asset.Make_and_Model__c</members>
 		<members>Asset.Manufacturer__c</members>
 		<members>Asset.Phone_Number_Display__c</members>
 		<members>Asset.Phone_Number__c</members>
 		<members>Asset.Plan__c</members>
+		<members>Asset.Unlimited_Data__c</members>
+		<members>Asset.Unlimited_Talk__c</members>
+		<members>Asset.Unlimited_Text__c</members>
 		<members>Asset.User__c</members>
         <members>Billing_Account__c.Account__c</members>
+		<members>Billing_Account__c.Account_Type__c</members>
 		<members>Billing_Account__c.Billing_Account_Number__c</members>
-		<members>Billing_Account__c.Current_Billing_Cycle_End_Date__c</members>
-		<members>Billing_Account__c.Current_Billing_Cycle_Start_Date__c</members>
-		<members>Plan__c.Account_Type__c</members>
 		<members>Plan__c.Billing_Account_Number__c</members>
-		<members>Plan__c.CTNs_on_Plan__c</members>
 		<members>Plan__c.Name__c</members>
 		<members>Plan__c.Plan_Effective_Date__c</members>
 		<members>Plan__c.Product__c</members>
-		<members>Usage__c.Allotted_D__c</members>
-		<members>Usage__c.Allotted_S__c</members>
-		<members>Usage__c.Allotted__c</members>
+		<members>Usage__c.Allotted_Usage__c</members>
 		<members>Usage__c.Asset__c</members>
-		<members>Usage__c.Data__c</members>
-		<members>Usage__c.Is_Unlimited_D__c</members>
-		<members>Usage__c.Is_Unlimited_S__c</members>
-		<members>Usage__c.Is_Unlimited_V__c</members>
-		<members>Usage__c.SMS__c</members>
+		<members>Usage__c.Current_Usage__c</members>
+		<members>Usage__c.Unit_of_Measure__c</members>
+		<members>Usage__c.Usage_Type__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
 		<members>Data_Usage_Banner_Error_Title</members>
 		<members>Data_Usage_Banner_Info_Title</members>
 		<name>CustomLabel</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>CustomLabels</name>
 	</types>
 	<types>
 		<members>Asset</members>

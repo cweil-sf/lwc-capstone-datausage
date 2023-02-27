@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_of_Measure__c</fullName>
+    <description>Formula field to identify the unit of measure for this usage record depending on the usage type.</description>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Usage_Type__c),
+&quot;Data&quot;, &quot;GB&quot;,
+&quot;Text&quot;, &quot;SMS&quot;,
+&quot;Talk&quot;, &quot;Minutes&quot;, 
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Unit of Measure</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CancelEdit</actionName>
         <type>Default</type>
@@ -120,7 +120,6 @@
         <lookupPhoneDialogsAdditionalFields>CONTACT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Phone_Number_Display__c</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ASSET.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"></searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>User__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Manufacturer__c</searchResultsAdditionalFields>

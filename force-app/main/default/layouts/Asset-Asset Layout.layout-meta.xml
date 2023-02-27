@@ -57,19 +57,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Is_Deleted__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Is_Primary__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Device__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Plan__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Unlimited_Data__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Unlimited_Text__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Unlimited_Talk__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -157,9 +157,6 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Data__c</fields>
-        <fields>SMS__c</fields>
-        <fields>Voice_Mins__c</fields>
         <relatedList>Usage__c.Asset__c</relatedList>
     </relatedLists>
     <relatedLists>
