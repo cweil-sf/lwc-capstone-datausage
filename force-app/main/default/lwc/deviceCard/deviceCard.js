@@ -13,10 +13,10 @@ export default class DeviceCard extends LightningElement {
     nearLimit = false;
     overLimit = false;
     
-    connectedCallback() {
+    renderedCallback() {
         this.name = this.asset.User__c;
         this.contactNumber = this.asset.Phone_Number_Display__c;
-        this.device = this.asset.Name;
+        this.device = this.asset.Make_and_Model__c;
         this.usage = this.asset.Usage__r.Current_Usage__c;
         this.setIcon();
         this.determineUsageLimit();

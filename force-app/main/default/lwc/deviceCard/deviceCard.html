@@ -1,11 +1,11 @@
 <template>
     <lightning-card>
-        <div slot="header">
+        <div slot="title">
             <lightning-icon icon-name={icon}></lightning-icon>
             <h3>{name}</h3>
             <p>{contactNumber}</p>
         </div>
-        <div slot="action">
+        <div slot="actions">
             <h3>{device}</h3>
             {usage} of {totalUsage} GB used
             <template lwc:if={nearLimit}>

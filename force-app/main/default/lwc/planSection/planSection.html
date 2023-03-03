@@ -1,8 +1,10 @@
 <template>
-    <template for:each={plan} for:item="asset">
-        <c-device-card
-            key={asset.Id}
-            asset={asset}
-        ></c-device-card>
+    <template lwc:if={hasData}>
+        <template for:each={planAssets} for:item="asset">
+            <c-device-card
+                key={asset.Id}
+                asset={asset}
+            ></c-device-card>
+        </template>
     </template>
 </template>

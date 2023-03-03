@@ -15,13 +15,13 @@ export default class DataUsage extends LightningElement {
         .then(result => {
             this.planData = result.plans;
             this.planData.forEach(plan => {
-                plan.forEach(asset => {
+                plan.Assets__r.forEach(asset => {
                     asset.Usage__r = result.usageMap[asset.Id];
                 });
             });
         })
         .catch(error => {
-            console.warn(error);
+            console.warn(JSON.stringify(error));
         });
     }
 }
