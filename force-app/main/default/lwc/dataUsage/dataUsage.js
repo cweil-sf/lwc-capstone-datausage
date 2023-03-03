@@ -4,7 +4,11 @@ import getPlans from '@salesforce/apex/deviceUsageController.getPlans';
 export default class DataUsage extends LightningElement {
     @api recordId;
 
-    planData;
+    planData = [];
+
+    get hasData() {
+        return this.planData.length > 0;
+    }
 
     connectedCallback() {
         getPlans({ billingAccountId: this.recordId })
