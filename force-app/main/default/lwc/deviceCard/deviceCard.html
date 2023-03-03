@@ -9,10 +9,10 @@
             <h3>{device}</h3>
             {usage} of {totalUsage} GB used
             <template lwc:if={nearLimit}>
-                <lightning-icon icon-name="utility:alert" alternative-text="Alert" size="small" variant="warning"></lightning-icon>
+                <lightning-helptext icon-name="utility:alert" content="Near Limit" alternative-text="Alert" icon-variant="warning"></lightning-helptext>
             </template>
             <template lwc:elseif={overLimit}>
-                <lightning-icon icon-name="utility:warning" alternative-text="Warning" size="small" variant="error"></lightning-icon>
+                <lightning-helptext icon-name="utility:warning" content="Over Limit" alternative-text="Warning" icon-variant="error"></lightning-helptext>
             </template>
         </div>
     </lightning-card>
