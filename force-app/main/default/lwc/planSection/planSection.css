@@ -1,0 +1,7 @@
+.button-text {
+    --sds-c-button-text-color: black;
+}
+
+.boundary {
+    display: block;
+}

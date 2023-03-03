@@ -13,7 +13,7 @@ public with sharing class deviceUsageController {
     @AuraEnabled
     public static PlanWrapper getPlans(Id billingAccountId) {
         try {
-            List<Plan__c> plans =  [SELECT Id, Name, 
+            List<Plan__c> plans =  [SELECT Id, Product__c, 
                                         (SELECT Id, Make_And_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c
                                         FROM Assets__r)
                                     FROM Plan__c

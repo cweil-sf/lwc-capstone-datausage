@@ -1,21 +1,21 @@
 <template>    
     <lightning-card>
         <lightning-layout multiple-rows>
-
             <template lwc:if={hasData}>
-                <template for:each={planData} for:item="plan">
-                    <c-plan-section
-                        key={plan.Id}
-                        plan={plan}
-                    ></c-plan-section>
-                </template>
+                <lightning-layout-item size="12">
+                    <template for:each={planData} for:item="plan">
+                        <c-plan-section
+                            key={plan.Id}
+                            plan={plan}
+                        ></c-plan-section>
+                    </template>
+                </lightning-layout-item>
             </template>
             <template lwc:else>
                 <lightning-layout-item size="12">
                     Usage is not available. Please refresh or check back later.
                 </lightning-layout-item>
             </template>
-
         </lightning-layout>
     </lightning-card>
 </template>

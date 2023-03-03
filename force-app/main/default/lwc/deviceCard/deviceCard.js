@@ -41,6 +41,11 @@ export default class DeviceCard extends LightningElement {
     determineUsageLimit() {
         if (!this.asset.Unlimited_Data__c) {
             this.totalUsage = this.asset.Usage__r.Allotted_Usage__c;
+            if (this.usage / this.totalUsage >= 1) {
+                this.overLimit = true;
+            } else if (this.usage / this.totalUsage > 0.9) {
+                this.nearLimit = true;
+            }
         } else {
             this.totalUsage = 'unlimited';
         }

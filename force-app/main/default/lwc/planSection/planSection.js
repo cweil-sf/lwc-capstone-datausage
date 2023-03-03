@@ -5,6 +5,9 @@ export default class PlanSection extends LightningElement {
 
     planAssets;
 
+    expanded = true;
+    icon = "utility:switch";
+
     get hasData() {
         if(this.plan.Assets__r.length) {
             return this.plan.Assets__r.length > 0;
@@ -14,5 +17,14 @@ export default class PlanSection extends LightningElement {
 
     renderedCallback() {
         this.planAssets = this.plan.Assets__r;
+    }
+
+    toggleSection() {
+        this.expanded = !this.expanded;
+        if (this.expanded) {
+            this.icon = "utility:switch";
+        } else {
+            this.icon = "utility:chevronup";
+        }
     }
 }
