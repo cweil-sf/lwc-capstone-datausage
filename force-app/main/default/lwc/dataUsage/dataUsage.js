@@ -4,6 +4,7 @@ import getPlans from '@salesforce/apex/deviceUsageController.getPlans';
 export default class DataUsage extends LightningElement {
     @api recordId;
 
+    hasError = false;
     planData = [];
 
     get hasData() {
@@ -21,7 +22,7 @@ export default class DataUsage extends LightningElement {
             });
         })
         .catch(error => {
-            console.warn(JSON.stringify(error));
+            hasError = true;
         });
     }
 }
