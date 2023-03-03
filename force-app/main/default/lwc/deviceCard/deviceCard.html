@@ -1,0 +1,19 @@
+<template>
+    <lightning-card>
+        <div slot="header">
+            <lightning-icon icon-name={icon}></lightning-icon>
+            <h3>{name}</h3>
+            <p>{contactNumber}</p>
+        </div>
+        <div slot="action">
+            <h3>{device}</h3>
+            {usage} of {totalUsage} GB used
+            <template lwc:if={nearLimit}>
+                <lightning-icon icon-name="utility:alert" alternative-text="Alert" size="small" variant="warning"></lightning-icon>
+            </template>
+            <template lwc:elseif={overLimit}>
+                <lightning-icon icon-name="utility:warning" alternative-text="Warning" size="small" variant="error"></lightning-icon>
+            </template>
+        </div>
+    </lightning-card>
+</template>
