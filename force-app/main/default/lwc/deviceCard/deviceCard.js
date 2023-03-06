@@ -2,8 +2,7 @@ import { LightningElement, api } from 'lwc';
 
 export default class DeviceCard extends LightningElement {
     @api asset;
-
-    usageToUse;
+    @api type;
 
     name;
     contactNumber;
@@ -15,21 +14,13 @@ export default class DeviceCard extends LightningElement {
 
     nearLimit = false;
     overLimit = false;
-
-    type = 'Data';
     
     renderedCallback() {
-        this.asset.Usage__r.forEach(usage => {
-            if (usage.Usage_Type__c == this.type) {
-                this.usageToUse = usage;
-                return;
-            }
-        })
         this.name = this.asset.User__c;
         this.contactNumber = this.asset.Phone_Number_Display__c;
         this.device = this.asset.Make_and_Model__c;
-        this.usage = this.usageToUse.Current_Usage__c;
-        this.unitOfMeasure = this.usageToUse.Unit_of_Measure__c;
+        this.usage = this.asset.Usage__r.Current_Usage__c;
+        this.unitOfMeasure = this.asset.Usage__r.Unit_of_Measure__c;
         this.setIcon();
         this.determineUsageLimit();
     }
@@ -84,7 +75,7 @@ export default class DeviceCard extends LightningElement {
     }
 
     totalUsageCalculation() {
-        this.totalUsage = this.usageToUse.Allotted_Usage__c;
+        this.totalUsage = this.asset.Usage__r.Allotted_Usage__c;
         if (this.usage / this.totalUsage >= 1) {
             this.overLimit = true;
         } else if (this.usage / this.totalUsage > 0.9) {

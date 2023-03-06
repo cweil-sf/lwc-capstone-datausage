@@ -2,16 +2,16 @@ public with sharing class deviceUsageController {
 
     class PlanWrapper {
         @AuraEnabled public List<Plan__c> plans {get;set;}
-        @AuraEnabled public Map<Id,List<Usage__c>> usageMap {get;set;}
+        @AuraEnabled public Map<Id,Usage__c> usageMap {get;set;}
 
-        public PlanWrapper(List<Plan__c> plans, Map<Id,List<Usage__c>> usageMap) {
+        public PlanWrapper(List<Plan__c> plans, Map<Id,Usage__c> usageMap) {
             this.plans = plans;
             this.usageMap = usageMap;
         }
     }
 
     @AuraEnabled
-    public static PlanWrapper getPlans(Id billingAccountId) {
+    public static PlanWrapper getPlans(Id billingAccountId, String usageType) {
         try {
             List<Plan__c> plans =  [SELECT Id, Product__c, 
                                         (SELECT Id, Make_And_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c, Unlimited_Talk__c, Unlimited_Text__c
@@ -28,14 +28,12 @@ public with sharing class deviceUsageController {
 
             List<Usage__c> usageInfo = [SELECT Id, Allotted_Usage__c, Current_Usage__c, Asset__c, Unit_of_Measure__c, Usage_Type__c
                                         FROM Usage__c
-                                        WHERE Asset__c IN :assetIds];
+                                        WHERE Asset__c IN :assetIds
+                                        AND Usage_Type__c = :usageType];
 
-            Map<Id,List<Usage__c>> usageMap = new Map<Id,List<Usage__c>>();
+            Map<Id,Usage__c> usageMap = new Map<Id,Usage__c>();
             for (Usage__c usage : usageInfo) {
-                if (!usageMap.containsKey(usage.Asset__c)) {
-                    usageMap.put(usage.Asset__c, new List<Usage__c>());  
-                }
-                usageMap.get(usage.Asset__c).add(usage);
+                usageMap.put(usage.Asset__c, usage);
             }
 
             PlanWrapper wrapper = new PlanWrapper(plans, usageMap);

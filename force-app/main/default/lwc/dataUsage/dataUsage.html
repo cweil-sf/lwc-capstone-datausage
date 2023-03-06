@@ -1,38 +1,51 @@
 <template>    
     <lightning-card>
-        <lightning-layout multiple-rows>
-            <template lwc:if={hasData}>
-                <lightning-layout-item size="12">
-                    <template for:each={planData} for:item="plan">
-                        <c-plan-section
-                            key={plan.Id}
-                            plan={plan}
-                        ></c-plan-section>
-                    </template>
-                </lightning-layout-item>
-            </template>
-            <template lwc:elseif={hasError}>
-                <lightning-layout-item size="12">
-                    <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
-                        <span class="slds-assistive-text">error</span>
-                        <span class="slds-icon_container slds-icon-utility-error slds-var-m-right_x-small">
-                            <lightning-icon class="slds-icon" icon-name="utility:error" alternative-text="info" size="small" variant="inverse"></lightning-icon>
-                        </span>
-                        <h3>An unexpected error occurred while retrieving the usage. Please refresh or report the issue.</h3>
-                    </div>
-                </lightning-layout-item>
-            </template>
-            <template lwc:else>
-                <lightning-layout-item size="12">
-                    <div class="slds-notify slds-notify_alert" role="alert">
-                        <span class="slds-assistive-text">info</span>
-                        <span class="slds-icon_container slds-icon-utility-info slds-var-m-right_x-small">
-                            <lightning-icon class="slds-icon" icon-name="utility:info" alternative-text="info" size="small" variant="inverse"></lightning-icon>
-                        </span>
-                        <h3>Usage is not available. Please refresh or check back later.</h3>
-                    </div>
-                </lightning-layout-item>
-            </template>
-        </lightning-layout>
+        <div slot="actions">
+            <lightning-button-group>
+                <lightning-button label="Data" onclick={setTypeData} variant={dataButtonVariant}></lightning-button>
+                <lightning-button label="Text" onclick={setTypeText} variant={textButtonVariant}></lightning-button>
+                <lightning-button label="Talk" onclick={setTypeTalk} variant={talkButtonVariant}></lightning-button>
+            </lightning-button-group>
+        </div>
+        <template lwc:if={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+        </template>
+        <template lwc:else>
+            <lightning-layout multiple-rows>
+                <template lwc:if={hasData}>
+                    <lightning-layout-item size="12">
+                        <template for:each={planData} for:item="plan">
+                            <c-plan-section
+                                key={plan.Id}
+                                plan={plan}
+                                type={type}
+                            ></c-plan-section>
+                        </template>
+                    </lightning-layout-item>
+                </template>
+                <template lwc:elseif={hasError}>
+                    <lightning-layout-item size="12">
+                        <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                            <span class="slds-assistive-text">error</span>
+                            <span class="slds-icon_container slds-icon-utility-error slds-var-m-right_x-small">
+                                <lightning-icon class="slds-icon" icon-name="utility:error" alternative-text="info" size="small" variant="inverse"></lightning-icon>
+                            </span>
+                            <h3>An unexpected error occurred while retrieving the usage. Please refresh or report the issue.</h3>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+                <template lwc:else>
+                    <lightning-layout-item size="12">
+                        <div class="slds-notify slds-notify_alert" role="alert">
+                            <span class="slds-assistive-text">info</span>
+                            <span class="slds-icon_container slds-icon-utility-info slds-var-m-right_x-small">
+                                <lightning-icon class="slds-icon" icon-name="utility:info" alternative-text="info" size="small" variant="inverse"></lightning-icon>
+                            </span>
+                            <h3>Usage is not available. Please refresh or check back later.</h3>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </template>
     </lightning-card>
 </template>
