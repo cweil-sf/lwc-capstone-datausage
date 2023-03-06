@@ -24,6 +24,9 @@ export default class PlanSection extends LightningElement {
         this.expanded = !this.expanded;
         if (this.expanded) {
             this.icon = "utility:switch";
+            setTimeout(() => {
+                this.createChart();
+            }, 0);
         } else {
             this.icon = "utility:chevronup";
         }
