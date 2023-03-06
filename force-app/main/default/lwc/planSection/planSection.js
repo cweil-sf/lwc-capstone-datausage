@@ -31,7 +31,6 @@ export default class PlanSection extends LightningElement {
 
     @api
     createChart(){
-        console.log('plan section');
         this.template.querySelector('c-pie-chart').createChart(this.planAssets);
     }
 }
