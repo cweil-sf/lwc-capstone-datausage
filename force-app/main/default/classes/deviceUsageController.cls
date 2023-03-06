@@ -2,9 +2,9 @@ public with sharing class deviceUsageController {
 
     class PlanWrapper {
         @AuraEnabled public List<Plan__c> plans {get;set;}
-        @AuraEnabled public Map<Id,Usage__c> usageMap {get;set;}
+        @AuraEnabled public Map<Id,List<Usage__c>> usageMap {get;set;}
 
-        public PlanWrapper(List<Plan__c> plans, Map<Id,Usage__c> usageMap) {
+        public PlanWrapper(List<Plan__c> plans, Map<Id,List<Usage__c>> usageMap) {
             this.plans = plans;
             this.usageMap = usageMap;
         }
@@ -14,7 +14,7 @@ public with sharing class deviceUsageController {
     public static PlanWrapper getPlans(Id billingAccountId) {
         try {
             List<Plan__c> plans =  [SELECT Id, Product__c, 
-                                        (SELECT Id, Make_And_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c
+                                        (SELECT Id, Make_And_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c, Unlimited_Talk__c, Unlimited_Text__c
                                         FROM Assets__r)
                                     FROM Plan__c
                                     WHERE Billing_Account_Number__c = :billingAccountId];
@@ -26,13 +26,16 @@ public with sharing class deviceUsageController {
                 }
             }
 
-            List<Usage__c> usageInfo = [SELECT Id, Allotted_Usage__c, Current_Usage__c, Asset__c
+            List<Usage__c> usageInfo = [SELECT Id, Allotted_Usage__c, Current_Usage__c, Asset__c, Unit_of_Measure__c, Usage_Type__c
                                         FROM Usage__c
                                         WHERE Asset__c IN :assetIds];
 
-            Map<Id,Usage__c> usageMap = new Map<Id,Usage__c>();
+            Map<Id,List<Usage__c>> usageMap = new Map<Id,List<Usage__c>>();
             for (Usage__c usage : usageInfo) {
-                usageMap.put(usage.Asset__c, usage);
+                if (!usageMap.containsKey(usage.Asset__c)) {
+                    usageMap.put(usage.Asset__c, new List<Usage__c>());  
+                }
+                usageMap.get(usage.Asset__c).add(usage);
             }
 
             PlanWrapper wrapper = new PlanWrapper(plans, usageMap);

@@ -12,7 +12,7 @@
                 <div class="slds-text-align_right">
                     <strong>{device}</strong>
                     <p>
-                        {usage} of {totalUsage} GB used
+                        {usage} of {totalUsage} {unitOfMeasure} used
                         <template lwc:if={nearLimit}>
                             <lightning-helptext icon-name="utility:alert" content="Near Limit" alternative-text="Alert" icon-variant="warning"></lightning-helptext>
                         </template>
