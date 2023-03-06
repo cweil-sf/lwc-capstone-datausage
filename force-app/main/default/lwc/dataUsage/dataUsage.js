@@ -32,11 +32,17 @@ export default class DataUsage extends LightningElement {
                     asset.Usage__r = result.usageMap[asset.Id];
                 });
             });
-            this.isLoading = false;
         })
         .catch(error => {
             this.hasError = true;
+        })
+        .finally(() => {
             this.isLoading = false;
+            setTimeout(() => {
+                this.template.querySelectorAll('c-plan-section').forEach(selector => {
+                    selector.createChart();
+                });
+            }, 0);
         });
     }
 

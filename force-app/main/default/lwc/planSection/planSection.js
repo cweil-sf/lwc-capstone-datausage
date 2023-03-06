@@ -28,4 +28,10 @@ export default class PlanSection extends LightningElement {
             this.icon = "utility:chevronup";
         }
     }
+
+    @api
+    createChart(){
+        console.log('plan section');
+        this.template.querySelector('c-pie-chart').createChart(this.planAssets);
+    }
 }

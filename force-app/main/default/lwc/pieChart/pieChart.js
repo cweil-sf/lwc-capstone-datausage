@@ -5,8 +5,6 @@ import chartjs from '@salesforce/resourceUrl/ChartJs';
 
 export default class PieChart extends LightningElement {
 
-    @api planAssets;
-
     chart;
 
     chartInit = false;
@@ -19,17 +17,17 @@ export default class PieChart extends LightningElement {
         },
         options: {
             responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    display: true
-                }
+            legend: {
+                position: 'bottom'
             }
         }
     };
 
-    renderedCallback() {
+    @api
+    createChart(assets) {
+        console.log('pie chart');
         if (this.chartInit) {
+            this.updateChartData(assets);
             return;
         }
         this.chartInit = true;
@@ -37,18 +35,17 @@ export default class PieChart extends LightningElement {
         .then(() => {
             const context = this.template.querySelector('canvas.donut').getContext('2d');
             this.chart = new window.Chart(context, this.chartConfig);
-            this.updateChartData();
+            this.updateChartData(assets);
         })
         .catch(error => {
             console.warn(error);
         });
     }
 
-    @api
-    updateChartData() {
+    updateChartData(assets) {
         this.chart.data.labels = [];
         this.chart.data.datasets = [{ label: '', data: [], backgroundColor: [] }];
-        this.planAssets.forEach(asset => {
+        assets.forEach(asset => {
             this.chart.data.labels.push(asset.Make_and_Model__c);
             this.chart.data.datasets[0].data.push(asset.Usage__r.Current_Usage__c);
             this.chart.data.datasets[0].backgroundColor.push();
