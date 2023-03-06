@@ -7,6 +7,11 @@
             <template lwc:if={hasData}>
                 <div class="slds-section__content slds-box slds-var-m-top_x-small">
                     <lightning-layout multiple-rows>
+                        <lightning-layout-item size="6" padding="around-small">
+                            <c-pie-chart
+                                plan-assets={planAssets}
+                            ></c-pie-chart>
+                        </lightning-layout-item>
                         <template for:each={planAssets} for:item="asset">
                             <lightning-layout-item size="6" padding="around-small" key={asset.Id}>
                                 <div class="slds-box">

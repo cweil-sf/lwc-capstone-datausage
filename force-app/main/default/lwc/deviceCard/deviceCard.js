@@ -1,5 +1,9 @@
 import { LightningElement, api } from 'lwc';
 
+import usagePhone from '@salesforce/resourceUrl/UsagePhone';
+import usageTablet from '@salesforce/resourceUrl/UsageTablet';
+import usageWatch from '@salesforce/resourceUrl/UsageWatch';
+
 export default class DeviceCard extends LightningElement {
     @api asset;
     @api type;
@@ -28,13 +32,13 @@ export default class DeviceCard extends LightningElement {
     setIcon() {
         switch(this.asset.Device_Type__c) {
             case 'Phone':
-                this.icon = 'utility:phone_portrait';
+                this.icon = usagePhone+'#icon';
                 break;
             case 'Tablet':
-                this.icon = 'utility:tablet_portrait';
+                this.icon = usageTablet+'#icon';
                 break;
             case 'Wearable':
-                this.icon = 'utility:clock';
+                this.icon = usageWatch+'#icon';
                 break;
             default:
                 this.icon = 'utility:help';

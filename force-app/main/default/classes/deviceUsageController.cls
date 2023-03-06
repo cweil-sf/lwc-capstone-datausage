@@ -14,7 +14,7 @@ public with sharing class deviceUsageController {
     public static PlanWrapper getPlans(Id billingAccountId, String usageType) {
         try {
             List<Plan__c> plans =  [SELECT Id, Product__c, 
-                                        (SELECT Id, Make_And_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c, Unlimited_Talk__c, Unlimited_Text__c
+                                        (SELECT Id, Make_and_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c, Unlimited_Talk__c, Unlimited_Text__c
                                         FROM Assets__r)
                                     FROM Plan__c
                                     WHERE Billing_Account_Number__c = :billingAccountId];
