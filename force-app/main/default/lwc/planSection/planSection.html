@@ -5,7 +5,7 @@
         </h3>
         <template lwc:if={expanded}>
             <template lwc:if={hasData}>
-                <div class="slds-section__content slds-box">
+                <div class="slds-section__content slds-box slds-var-m-top_x-small">
                     <lightning-layout multiple-rows>
                         <template for:each={planAssets} for:item="asset">
                             <lightning-layout-item size="6" padding="around-small" key={asset.Id}>
