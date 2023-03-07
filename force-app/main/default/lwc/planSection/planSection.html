@@ -5,23 +5,28 @@
         </h3>
         <template lwc:if={expanded}>
             <template lwc:if={hasData}>
-                <div class="slds-section__content slds-box slds-var-m-top_x-small">
+                <div class="slds-section__content slds-box slds-box_x-small slds-var-m-top_x-small">
                     <lightning-layout multiple-rows>
-                        <lightning-layout-item size="6" padding="around-small">
-                            <c-pie-chart
-                                plan-assets={planAssets}
-                            ></c-pie-chart>
+                        <lightning-layout-item class="slds-var-p-horizontal_xx-small slds-var-p-bottom_x-small" size="6" small-device-size="12" medium-device-size="12" large-device-size="6">
+                            <div class="slds-box slds-box_x-small">
+                                <c-pie-chart></c-pie-chart>
+                            </div>
                         </lightning-layout-item>
-                        <template for:each={planAssets} for:item="asset">
-                            <lightning-layout-item size="6" padding="around-small" key={asset.Id}>
-                                <div class="slds-box">
-                                    <c-device-card
-                                        asset={asset}
-                                        type={type}
-                                    ></c-device-card>
-                                </div>
-                            </lightning-layout-item>
-                        </template>  
+                        <lightning-layout-item size="6" small-device-size="12" medium-device-size="12" large-device-size="6">
+                            <lightning-layout multiple-rows>
+                                <template for:each={planAssets} for:item="asset">
+                                    <lightning-layout-item class="slds-var-p-horizontal_xx-small slds-var-p-bottom_x-small" size="12" key={asset.Id}>
+                                        <div class="slds-box slds-box_x-small">
+                                            <c-device-card
+                                                asset={asset}
+                                                color-map={colorMap}
+                                                type={type}
+                                            ></c-device-card>
+                                        </div>
+                                    </lightning-layout-item>
+                                </template>
+                            </lightning-layout>
+                        </lightning-layout-item>
                     </lightning-layout>
                 </div>
             </template>
