@@ -1,6 +1,5 @@
 import { LightningElement, api } from 'lwc';
 import getPlans from '@salesforce/apex/deviceUsageController.getPlans';
-import getUpdatedPlans from '@salesforce/apex/deviceUsageController.getUpdatedPlans';
 
 export default class DataUsage extends LightningElement {
     @api recordId;
@@ -15,58 +14,47 @@ export default class DataUsage extends LightningElement {
 
     connectedCallback() {
         this.isLoading = true;
-        this.callGetPlans();
+        this.callGetPlans(this.recordId, 'Data');
     }
 
-    callGetPlans() {
-        this.planData = [];
-        getPlans({ billingAccountId: this.recordId, usageType: 'Data' })
-        .then(result => {
-            this.planData = result.plans;
-            this.planData.forEach(plan => {
-                plan.Assets__r.forEach(asset => {
-                    asset.Usage__r = result.usageMap[asset.Id];
-                });
+    callGetPlans(id, type) {
+        const assetAssignment = (plan, result) => {
+            plan.Assets__r.forEach(asset => {
+                asset.Usage__r = result.usageMap[asset.Id];
             });
-        })
-        .catch(error => {
-            this.hasError = true;
-        })
-        .finally(() => {
-            this.isLoading = false;
+        };
+        getPlans({ inputId: id, usageType: type })
+        .then(result => {
+            const planIdx = this.planData.findIndex((plan) => plan.Id == id);
+            if (planIdx == -1) {
+                this.planData = result.plans;
+                this.planData.forEach(plan => {
+                    assetAssignment(plan, result);
+                });
+            } else {
+                this.planData[planIdx] = result.plans[0];
+                assetAssignment(this.planData[planIdx], result);
+            }
             setTimeout(() => {
+                if (planIdx != -1) {
+                    this.template.querySelectorAll('c-plan-section')[planIdx].setupButtons(type);
+                }
                 this.template.querySelectorAll('c-plan-section').forEach(selector => {
                     selector.createChart();
                 });
             }, 0);
+        })
+        .catch(error => {
+            this.hasError = true;
+            console.error(error);
+        })
+        .finally(() => {
+            this.isLoading = false;
         });
     }
 
     getNewTypeData(event) {
         this.isLoading = true;
-        let planIdx = -1;
-        getUpdatedPlans({ planId: event.detail.plan, usageType: event.detail.value })
-        .then(result => {
-            planIdx = this.planData.findIndex((plan) => plan.Id == event.detail.plan);
-            if (planIdx == -1) {
-                throw new Error('Error retrieving plan information');
-            }
-            this.planData[planIdx] = result.plans[0];
-            this.planData[planIdx].Assets__r.forEach(asset => {
-                asset.Usage__r = result.usageMap[asset.Id];
-            });
-        })
-        .catch(error => {
-            this.hasError = true;
-        })
-        .finally(() => {
-            this.isLoading = false;
-            setTimeout(() => {
-                this.template.querySelectorAll('c-plan-section')[planIdx].setupButtons(event.detail.value);
-                this.template.querySelectorAll('c-plan-section').forEach(selector => {
-                    selector.createChart();
-                });
-            }, 0);
-        });
+        this.callGetPlans(event.detail.plan, event.detail.value);
     }
 }
