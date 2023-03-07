@@ -4,12 +4,12 @@
             <lightning-button class="slds-section__title-action button-text" onclick={toggleSection} label={plan.Product__c} icon-name={icon} variant="base"></lightning-button>
         </h3>
         <template lwc:if={expanded}>
-            <template lwc:if={isLoading}>
-                <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
-            </template>
-            <template lwc:else>
-                <template lwc:if={hasData}>
-                    <div class="slds-section__content slds-box slds-box_x-small slds-var-m-top_x-small">
+            <div class="slds-section__content slds-box slds-box_x-small slds-var-m-top_x-small">
+                <template lwc:if={isLoading}>
+                    <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+                </template>
+                <template lwc:else>
+                    <template lwc:if={hasData}>
                         <lightning-card>
                             <div slot="actions">
                                 <lightning-button-group>
@@ -41,9 +41,9 @@
                                 </lightning-layout-item>
                             </lightning-layout>
                         </lightning-card>
-                    </div>
+                    </template>
                 </template>
-            </template>
+            </div>
         </template>
     </div>
 </template>

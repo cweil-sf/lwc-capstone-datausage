@@ -50,7 +50,7 @@ export default class PlanSection extends LightningElement {
         this.expanded = !this.expanded;
         if (this.expanded) {
             this.icon = "utility:switch";
-            this.completedDataProcessing(this.type);
+            this.completedDataProcessing(this.plan, this.type);
         } else {
             this.icon = "utility:chevronup";
         }
