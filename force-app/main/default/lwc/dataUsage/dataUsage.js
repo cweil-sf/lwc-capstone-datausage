@@ -1,13 +1,9 @@
 import { LightningElement, api } from 'lwc';
 import getPlans from '@salesforce/apex/deviceUsageController.getPlans';
+import getUpdatedPlans from '@salesforce/apex/deviceUsageController.getUpdatedPlans';
 
 export default class DataUsage extends LightningElement {
     @api recordId;
-
-    type = 'Data';
-    dataButtonVariant = 'Brand';
-    textButtonVariant = 'Neutral';
-    talkButtonVariant = 'Neutral';
 
     isLoading = true;
     hasError = false;
@@ -24,7 +20,7 @@ export default class DataUsage extends LightningElement {
 
     callGetPlans() {
         this.planData = [];
-        getPlans({ billingAccountId: this.recordId, usageType: this.type })
+        getPlans({ billingAccountId: this.recordId, usageType: 'Data' })
         .then(result => {
             this.planData = result.plans;
             this.planData.forEach(plan => {
@@ -46,30 +42,31 @@ export default class DataUsage extends LightningElement {
         });
     }
 
-    setTypeData() {
+    getNewTypeData(event) {
         this.isLoading = true;
-        this.type = 'Data';
-        this.dataButtonVariant = 'Brand';
-        this.textButtonVariant = 'Neutral';
-        this.talkButtonVariant = 'Neutral';
-        this.callGetPlans();
-    }
-
-    setTypeText() {
-        this.isLoading = true;
-        this.type = 'Text';
-        this.dataButtonVariant = 'Neutral';
-        this.textButtonVariant = 'Brand';
-        this.talkButtonVariant = 'Neutral';
-        this.callGetPlans();
-    }
-
-    setTypeTalk() {
-        this.isLoading = true;
-        this.type = 'Talk';
-        this.dataButtonVariant = 'Neutral';
-        this.textButtonVariant = 'Neutral';
-        this.talkButtonVariant = 'Brand';
-        this.callGetPlans();
+        let planIdx = -1;
+        getUpdatedPlans({ planId: event.detail.plan, usageType: event.detail.value })
+        .then(result => {
+            planIdx = this.planData.findIndex((plan) => plan.Id == event.detail.plan);
+            if (planIdx == -1) {
+                throw new Error('Error retrieving plan information');
+            }
+            this.planData[planIdx] = result.plans[0];
+            this.planData[planIdx].Assets__r.forEach(asset => {
+                asset.Usage__r = result.usageMap[asset.Id];
+            });
+        })
+        .catch(error => {
+            this.hasError = true;
+        })
+        .finally(() => {
+            this.isLoading = false;
+            setTimeout(() => {
+                this.template.querySelectorAll('c-plan-section')[planIdx].setupButtons(event.detail.value);
+                this.template.querySelectorAll('c-plan-section').forEach(selector => {
+                    selector.createChart();
+                });
+            }, 0);
+        });
     }
 }

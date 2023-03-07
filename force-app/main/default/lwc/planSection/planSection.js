@@ -4,13 +4,17 @@ const COLORS = ['#96F2EE', '#68CEEE', '#2D9CED', '#0E6ECE', '#073E92', '#051C61'
 
 export default class PlanSection extends LightningElement {
     @api plan;
-    @api type;
 
     planAssets;
 
+    type = 'Data';
     colorMap = {};
     expanded = true;
     icon = "utility:switch";
+
+    dataButtonVariant = 'Brand';
+    textButtonVariant = 'Neutral';
+    talkButtonVariant = 'Neutral';
 
     get hasData() {
         if(this.plan.Assets__r.length) {
@@ -44,5 +48,48 @@ export default class PlanSection extends LightningElement {
     @api
     createChart(){
         this.template.querySelector('c-pie-chart').createChart(this.planAssets, this.colorMap);
+    }
+
+    @api
+    setupButtons(type) {
+        this.type = type;
+        this.setButtonVariants();
+    }
+
+    setType(event) {
+        this.type = event.target.value;
+        this.setButtonVariants();
+
+        const typeEvent = new CustomEvent('typeselect', {
+            detail: {
+                plan: this.plan.Id,
+                value: event.target.value
+            }
+        });
+        this.dispatchEvent(typeEvent);
+    }
+
+    setButtonVariants(){
+        switch(this.type) {
+            case 'Data':
+                this.dataButtonVariant = 'Brand';
+                this.textButtonVariant = 'Neutral';
+                this.talkButtonVariant = 'Neutral';
+                break;
+            case 'Text':
+                this.dataButtonVariant = 'Neutral';
+                this.textButtonVariant = 'Brand';
+                this.talkButtonVariant = 'Neutral';
+                break;
+            case 'Talk':
+                this.dataButtonVariant = 'Neutral';
+                this.textButtonVariant = 'Neutral';
+                this.talkButtonVariant = 'Brand';
+                break;
+            default:
+                this.dataButtonVariant = 'Brand';
+                this.textButtonVariant = 'Neutral';
+                this.talkButtonVariant = 'Neutral';
+        }
     }
 }

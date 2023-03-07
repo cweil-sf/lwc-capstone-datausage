@@ -1,12 +1,5 @@
 <template>    
     <lightning-card>
-        <div slot="actions">
-            <lightning-button-group>
-                <lightning-button label="Data" onclick={setTypeData} variant={dataButtonVariant}></lightning-button>
-                <lightning-button label="Text" onclick={setTypeText} variant={textButtonVariant}></lightning-button>
-                <lightning-button label="Talk" onclick={setTypeTalk} variant={talkButtonVariant}></lightning-button>
-            </lightning-button-group>
-        </div>
         <template lwc:if={isLoading}>
             <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
         </template>
@@ -18,7 +11,7 @@
                             <c-plan-section
                                 key={plan.Id}
                                 plan={plan}
-                                type={type}
+                                ontypeselect={getNewTypeData}
                             ></c-plan-section>
                         </template>
                     </lightning-layout-item>
