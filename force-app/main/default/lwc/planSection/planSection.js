@@ -58,8 +58,6 @@ export default class PlanSection extends LightningElement {
 
     setType(event) {
         this.isLoading = true;
-        this.type = event.target.value;
-        this.setButtonVariants();
 
         const typeEvent = new CustomEvent('typeselect', {
             detail: {
