@@ -19,7 +19,10 @@ export default class PieChart extends LightningElement {
         options: {
             responsive: true,
             legend: {
-                position: 'bottom'
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true
+                }
             },
             elements: {
                 center: {
@@ -54,16 +57,15 @@ export default class PieChart extends LightningElement {
 
     updateChartData(assets, colorMap) {
         this.chart.data.labels = [];
-        this.chart.data.datasets = [{ label: '', data: [], backgroundColor: [] }];
+        this.chart.data.datasets = [{ label: '', data: [], backgroundColor: [], pointStyle: [] }];
         this.chart.options.elements.center.text = '';
         let total = 0;
-        let i = 0;
         assets.forEach(asset => {
             this.chart.data.labels.push(asset.Make_and_Model__c);
             this.chart.data.datasets[0].data.push(asset.Usage__r.Current_Usage__c);
             this.chart.data.datasets[0].backgroundColor.push(colorMap[asset.Id]);
+            this.chart.data.datasets[0].pointStyle.push('circle');
             total = total + asset.Usage__r.Current_Usage__c;
-            i++;
         });
         this.chart.options.elements.center.text = total + ' ' + assets[0].Usage__r.Unit_of_Measure__c;
         this.chart.update();
