@@ -24,6 +24,9 @@ export default class PlanSection extends LightningElement {
         this.planAssets.forEach((asset, index) => {
             this.colorMap[asset.Id] = COLORS[index % COLORS.length];
         });
+        this.template.querySelectorAll('.custom-border').forEach((selector, index) => {
+            selector.style.borderLeftColor = COLORS[index % COLORS.length];
+        });
     }
 
     toggleSection() {
