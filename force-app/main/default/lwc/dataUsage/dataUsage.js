@@ -4,7 +4,6 @@ import getPlans from '@salesforce/apex/deviceUsageController.getPlans';
 export default class DataUsage extends LightningElement {
     @api recordId;
 
-    isLoading = true;
     hasError = false;
     planData = [];
 
@@ -13,7 +12,6 @@ export default class DataUsage extends LightningElement {
     }
 
     connectedCallback() {
-        this.isLoading = true;
         this.callGetPlans(this.recordId, 'Data');
     }
 
@@ -34,27 +32,17 @@ export default class DataUsage extends LightningElement {
             } else {
                 this.planData[planIdx] = result.plans[0];
                 assetAssignment(this.planData[planIdx], result);
+                setTimeout(() => {
+                    this.template.querySelectorAll('c-plan-section')[planIdx].completedDataProcessing(this.planData[planIdx], type);
+                }, 0);
             }
-            setTimeout(() => {
-                if (planIdx != -1) {
-                    this.template.querySelectorAll('c-plan-section')[planIdx].setupButtons(type);
-                }
-                this.template.querySelectorAll('c-plan-section').forEach(selector => {
-                    selector.createChart();
-                });
-            }, 0);
         })
         .catch(error => {
             this.hasError = true;
-            console.error(error);
-        })
-        .finally(() => {
-            this.isLoading = false;
         });
     }
 
     getNewTypeData(event) {
-        this.isLoading = true;
         this.callGetPlans(event.detail.plan, event.detail.value);
     }
 }

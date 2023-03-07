@@ -11,6 +11,7 @@ export default class PlanSection extends LightningElement {
     colorMap = {};
     expanded = true;
     icon = "utility:switch";
+    isLoading = true;
 
     dataButtonVariant = 'Brand';
     textButtonVariant = 'Neutral';
@@ -23,40 +24,40 @@ export default class PlanSection extends LightningElement {
         return false;
     }
 
-    renderedCallback() {
+    connectedCallback(){
+        this.completedDataProcessing(this.plan, this.type);
+    }
+
+    @api
+    completedDataProcessing(plan, type) {
+        this.isLoading = false;
+        this.plan = plan;
         this.planAssets = this.plan.Assets__r;
         this.planAssets.forEach((asset, index) => {
             this.colorMap[asset.Id] = COLORS[index % COLORS.length];
         });
-        this.template.querySelectorAll('.custom-border').forEach((selector, index) => {
-            selector.style.borderLeftColor = COLORS[index % COLORS.length];
-        });
+        this.type = type;
+        this.setButtonVariants();
+        setTimeout(() => {
+            this.template.querySelectorAll('.custom-border').forEach((selector, index) => {
+                selector.style.borderLeftColor = COLORS[index % COLORS.length];
+            });
+            this.template.querySelector('c-pie-chart').createChart(this.planAssets, this.colorMap);
+        }, 0);
     }
 
     toggleSection() {
         this.expanded = !this.expanded;
         if (this.expanded) {
             this.icon = "utility:switch";
-            setTimeout(() => {
-                this.createChart();
-            }, 0);
+            this.completedDataProcessing(this.type);
         } else {
             this.icon = "utility:chevronup";
         }
     }
 
-    @api
-    createChart(){
-        this.template.querySelector('c-pie-chart').createChart(this.planAssets, this.colorMap);
-    }
-
-    @api
-    setupButtons(type) {
-        this.type = type;
-        this.setButtonVariants();
-    }
-
     setType(event) {
+        this.isLoading = true;
         this.type = event.target.value;
         this.setButtonVariants();
 
