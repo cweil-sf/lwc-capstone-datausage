@@ -13,6 +13,7 @@ export default class PlanSection extends LightningElement {
   @api plan;
 
   planAssets;
+  privatePlan = {};
 
   type = "Data";
   colorMap = {};
@@ -25,8 +26,10 @@ export default class PlanSection extends LightningElement {
   talkButtonVariant = "Neutral";
 
   get hasData() {
-    if (this.plan.Assets__r.length) {
-      return this.plan.Assets__r.length > 0;
+    if (this.privatePlan.Assets__r) {
+      if (this.privatePlan.Assets__r.length) {
+        return this.privatePlan.Assets__r.length > 0;
+      }
     }
     return false;
   }
@@ -35,33 +38,34 @@ export default class PlanSection extends LightningElement {
     this.completedDataProcessing(this.plan, this.type);
   }
 
+  renderedCallback() {
+    this.template
+      .querySelectorAll(".custom-border")
+      .forEach((selector, index) => {
+        selector.style.borderLeftColor = COLORS[index % COLORS.length];
+      });
+    this.template
+      .querySelector("c-pie-chart")
+      .createChart(this.planAssets, this.colorMap);
+  }
+
   @api
   completedDataProcessing(plan, type) {
-    this.isLoading = false;
-    this.plan = plan;
-    this.planAssets = this.plan.Assets__r;
+    this.privatePlan = plan;
+    this.planAssets = this.privatePlan.Assets__r;
     this.planAssets.forEach((asset, index) => {
       this.colorMap[asset.Id] = COLORS[index % COLORS.length];
     });
     this.type = type;
     this.setButtonVariants();
-    setTimeout(() => {
-      this.template
-        .querySelectorAll(".custom-border")
-        .forEach((selector, index) => {
-          selector.style.borderLeftColor = COLORS[index % COLORS.length];
-        });
-      this.template
-        .querySelector("c-pie-chart")
-        .createChart(this.planAssets, this.colorMap);
-    }, 0);
+    this.isLoading = false;
   }
 
   toggleSection() {
     this.expanded = !this.expanded;
     if (this.expanded) {
       this.icon = "utility:switch";
-      this.completedDataProcessing(this.plan, this.type);
+      this.completedDataProcessing(this.privatePlan, this.type);
     } else {
       this.icon = "utility:chevronup";
     }

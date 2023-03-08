@@ -23,8 +23,8 @@ export default class DataUsage extends LightningElement {
     };
     getPlans({ inputId: id, usageType: type })
       .then((result) => {
-        const planIdx = this.planData.findIndex((plan) => plan.Id == id);
-        if (planIdx == -1) {
+        const planIdx = this.planData.findIndex((plan) => plan.Id === id);
+        if (planIdx === -1) {
           this.planData = result.plans;
           this.planData.forEach((plan) => {
             assetAssignment(plan, result);
@@ -32,14 +32,14 @@ export default class DataUsage extends LightningElement {
         } else {
           this.planData[planIdx] = result.plans[0];
           assetAssignment(this.planData[planIdx], result);
-          setTimeout(() => {
-            this.template
-              .querySelectorAll("c-plan-section")
-              [planIdx].completedDataProcessing(this.planData[planIdx], type);
-          }, 0);
+          this.template
+            .querySelectorAll("c-plan-section")[planIdx].completedDataProcessing(
+              this.planData[planIdx],
+              type
+            );
         }
       })
-      .catch((error) => {
+      .catch(() => {
         this.hasError = true;
       });
   }
