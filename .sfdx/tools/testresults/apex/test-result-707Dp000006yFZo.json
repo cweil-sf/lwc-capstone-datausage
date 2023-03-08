@@ -1,0 +1,77 @@
+{
+  "summary": {
+    "outcome": "Failed",
+    "testsRan": 2,
+    "passing": 0,
+    "failing": 2,
+    "skipped": 0,
+    "passRate": "0%",
+    "failRate": "100%",
+    "skipRate": "0%",
+    "testStartTime": "Wed Mar 08 2023 4:57:40 PM",
+    "testExecutionTimeInMs": 0,
+    "testTotalTimeInMs": 0,
+    "commandTimeInMs": 104,
+    "hostname": "https://empathetic-narwhal-sxdup3-dev-ed.trailblaze.my.salesforce.com",
+    "orgId": "00DDp000000IfdTMAS",
+    "username": "cweil@empathetic-narwhal-sxdup3.com",
+    "testRunId": "707Dp000006yFZo",
+    "userId": "005Dp0000018eFXIAY"
+  },
+  "tests": [
+    {
+      "id": "07MDp000000gOiBMAU",
+      "queueItemId": "709Dp000000g3MlIAI",
+      "stackTrace": "Class.DeviceUsageControllerTest.makeData: line 23, column 1",
+      "message": "System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [Name]: [Name]",
+      "asyncApexJobId": "707Dp000006yFZoIAM",
+      "methodName": "getPlans_givenBillingAccountId_shouldReturnAllPlans",
+      "outcome": "Fail",
+      "apexLogId": null,
+      "apexClass": {
+        "id": "01pDp000000qeHqIAI",
+        "name": "DeviceUsageControllerTest",
+        "namespacePrefix": null,
+        "fullName": "DeviceUsageControllerTest"
+      },
+      "runTime": 0,
+      "testTimestamp": "2023-03-08T21:57:40.000+0000",
+      "fullName": "DeviceUsageControllerTest.getPlans_givenBillingAccountId_shouldReturnAllPlans",
+      "diagnostic": {
+        "exceptionMessage": "System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [Name]: [Name]",
+        "exceptionStackTrace": "Class.DeviceUsageControllerTest.makeData: line 23, column 1",
+        "className": "DeviceUsageControllerTest",
+        "compileProblem": "",
+        "lineNumber": 23,
+        "columnNumber": 1
+      }
+    },
+    {
+      "id": "07MDp000000gOiCMAU",
+      "queueItemId": "709Dp000000g3MlIAI",
+      "stackTrace": "Class.DeviceUsageControllerTest.makeData: line 23, column 1",
+      "message": "System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [Name]: [Name]",
+      "asyncApexJobId": "707Dp000006yFZoIAM",
+      "methodName": "getPlans_givenPlanId_shouldReturnUsageOfSpecifiedType",
+      "outcome": "Fail",
+      "apexLogId": null,
+      "apexClass": {
+        "id": "01pDp000000qeHqIAI",
+        "name": "DeviceUsageControllerTest",
+        "namespacePrefix": null,
+        "fullName": "DeviceUsageControllerTest"
+      },
+      "runTime": 0,
+      "testTimestamp": "2023-03-08T21:57:40.000+0000",
+      "fullName": "DeviceUsageControllerTest.getPlans_givenPlanId_shouldReturnUsageOfSpecifiedType",
+      "diagnostic": {
+        "exceptionMessage": "System.DmlException: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [Name]: [Name]",
+        "exceptionStackTrace": "Class.DeviceUsageControllerTest.makeData: line 23, column 1",
+        "className": "DeviceUsageControllerTest",
+        "compileProblem": "",
+        "lineNumber": 23,
+        "columnNumber": 1
+      }
+    }
+  ]
+}

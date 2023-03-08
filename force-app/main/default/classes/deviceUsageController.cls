@@ -1,4 +1,5 @@
 public with sharing class DeviceUsageController {
+  @TestVisible
   class PlanWrapper {
     @AuraEnabled
     public List<Plan__c> plans { get; set; }
@@ -14,7 +15,7 @@ public with sharing class DeviceUsageController {
   @AuraEnabled
   public static PlanWrapper getPlans(Id inputId, String usageType) {
     try {
-      String query = 'SELECT Id, Product__c, (SELECT Id, Make_and_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c, Unlimited_Talk__c, Unlimited_Text__c FROM Assets__r) FROM Plan__c';
+      String query = 'SELECT Id, (SELECT Id, Make_and_Model__c, User__c, Phone_Number_Display__c, Device_Type__c, Unlimited_Data__c, Unlimited_Talk__c, Unlimited_Text__c FROM Assets__r) FROM Plan__c';
       if (inputId.getSObjectType() == Schema.Plan__c.getSObjectType()) {
         query = query + ' WHERE Id = :inputId';
       } else {
