@@ -1,5 +1,5 @@
 import { LightningElement, api } from "lwc";
-import getPlans from "@salesforce/apex/deviceUsageController.getPlans";
+import getPlans from "@salesforce/apex/DeviceUsageController.getPlans";
 
 export default class DataUsage extends LightningElement {
   @api recordId;

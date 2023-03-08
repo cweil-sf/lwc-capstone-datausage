@@ -1,4 +1,4 @@
-public with sharing class deviceUsageController {
+public with sharing class DeviceUsageController {
   class PlanWrapper {
     @AuraEnabled
     public List<Plan__c> plans { get; set; }
@@ -20,6 +20,7 @@ public with sharing class deviceUsageController {
       } else {
         query = query + ' WHERE Billing_Account_Number__c = :inputId';
       }
+      query = query + ' WITH SECURITY_ENFORCED';
 
       List<Plan__c> plans = Database.query(query);
 
@@ -40,6 +41,7 @@ public with sharing class deviceUsageController {
           Usage_Type__c
         FROM Usage__c
         WHERE Asset__c IN :assetIds AND Usage_Type__c = :usageType
+        WITH SECURITY_ENFORCED
       ];
 
       Map<Id, Usage__c> usageMap = new Map<Id, Usage__c>();
