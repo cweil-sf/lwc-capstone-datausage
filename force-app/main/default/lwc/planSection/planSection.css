@@ -1,8 +1,8 @@
 .button-text {
-    --sds-c-button-text-color: black;
+  --sds-c-button-text-color: black;
 }
 
 .custom-border {
-    border-left-width: thick;
-    border-left-color: #000000;
+  border-left-width: thick;
+  border-left-color: #000000;
 }
