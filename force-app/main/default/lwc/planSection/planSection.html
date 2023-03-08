@@ -1,49 +1,91 @@
 <template>
-    <div class="slds-section slds-is-open">
-        <h3 class="slds-section__title">
-            <lightning-button class="slds-section__title-action button-text" onclick={toggleSection} label={plan.Product__c} icon-name={icon} variant="base"></lightning-button>
-        </h3>
-        <template lwc:if={expanded}>
-            <div class="slds-section__content slds-box slds-box_x-small slds-var-m-top_x-small">
-                <template lwc:if={isLoading}>
-                    <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
-                </template>
-                <template lwc:else>
-                    <template lwc:if={hasData}>
-                        <lightning-card>
-                            <div slot="actions">
-                                <lightning-button-group>
-                                    <lightning-button label="Data" onclick={setType} variant={dataButtonVariant} value="Data"></lightning-button>
-                                    <lightning-button label="Text" onclick={setType} variant={textButtonVariant} value="Text"></lightning-button>
-                                    <lightning-button label="Talk" onclick={setType} variant={talkButtonVariant} value="Talk"></lightning-button>
-                                </lightning-button-group>
-                            </div>
-                            <lightning-layout multiple-rows>
-                                <lightning-layout-item class="slds-var-p-horizontal_xx-small slds-var-p-bottom_x-small" size="6" small-device-size="12" medium-device-size="12" large-device-size="6">
-                                    <div class="slds-box slds-box_x-small">
-                                        <c-pie-chart></c-pie-chart>
-                                    </div>
-                                </lightning-layout-item>
-                                <lightning-layout-item size="6" small-device-size="12" medium-device-size="12" large-device-size="6">
-                                    <lightning-layout multiple-rows>
-                                        <template for:each={planAssets} for:item="asset">
-                                            <lightning-layout-item class="slds-var-p-horizontal_xx-small slds-var-p-bottom_x-small" size="12" key={asset.Id}>
-                                                <div class="slds-box slds-box_x-small custom-border">
-                                                    <c-device-card
-                                                        asset={asset}
-                                                        color-map={colorMap}
-                                                        type={type}
-                                                    ></c-device-card>
-                                                </div>
-                                            </lightning-layout-item>
-                                        </template>
-                                    </lightning-layout>
-                                </lightning-layout-item>
-                            </lightning-layout>
-                        </lightning-card>
-                    </template>
-                </template>
-            </div>
+  <div class="slds-section slds-is-open">
+    <h3 class="slds-section__title">
+      <lightning-button
+        class="slds-section__title-action button-text"
+        onclick={toggleSection}
+        label={plan.Product__c}
+        icon-name={icon}
+        variant="base"
+      ></lightning-button>
+    </h3>
+    <template lwc:if={expanded}>
+      <div
+        class="slds-section__content slds-box slds-box_x-small slds-var-m-top_x-small"
+      >
+        <template lwc:if={isLoading}>
+          <lightning-spinner
+            alternative-text="Loading"
+            size="medium"
+            variant="brand"
+          ></lightning-spinner>
         </template>
-    </div>
+        <template lwc:else>
+          <template lwc:if={hasData}>
+            <lightning-card>
+              <div slot="actions">
+                <lightning-button-group>
+                  <lightning-button
+                    label="Data"
+                    onclick={setType}
+                    variant={dataButtonVariant}
+                    value="Data"
+                  ></lightning-button>
+                  <lightning-button
+                    label="Text"
+                    onclick={setType}
+                    variant={textButtonVariant}
+                    value="Text"
+                  ></lightning-button>
+                  <lightning-button
+                    label="Talk"
+                    onclick={setType}
+                    variant={talkButtonVariant}
+                    value="Talk"
+                  ></lightning-button>
+                </lightning-button-group>
+              </div>
+              <lightning-layout multiple-rows>
+                <lightning-layout-item
+                  class="slds-var-p-horizontal_xx-small slds-var-p-bottom_x-small"
+                  size="6"
+                  small-device-size="12"
+                  medium-device-size="12"
+                  large-device-size="6"
+                >
+                  <div class="slds-box slds-box_x-small">
+                    <c-pie-chart></c-pie-chart>
+                  </div>
+                </lightning-layout-item>
+                <lightning-layout-item
+                  size="6"
+                  small-device-size="12"
+                  medium-device-size="12"
+                  large-device-size="6"
+                >
+                  <lightning-layout multiple-rows>
+                    <template for:each={planAssets} for:item="asset">
+                      <lightning-layout-item
+                        class="slds-var-p-horizontal_xx-small slds-var-p-bottom_x-small"
+                        size="12"
+                        key={asset.Id}
+                      >
+                        <div class="slds-box slds-box_x-small custom-border">
+                          <c-device-card
+                            asset={asset}
+                            color-map={colorMap}
+                            type={type}
+                          ></c-device-card>
+                        </div>
+                      </lightning-layout-item>
+                    </template>
+                  </lightning-layout>
+                </lightning-layout-item>
+              </lightning-layout>
+            </lightning-card>
+          </template>
+        </template>
+      </div>
+    </template>
+  </div>
 </template>

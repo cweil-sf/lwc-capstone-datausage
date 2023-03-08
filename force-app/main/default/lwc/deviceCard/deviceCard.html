@@ -1,27 +1,41 @@
 <template>
-    <lightning-card>
-        <lightning-layout>
-            <lightning-layout-item size="1">
-                <lightning-icon class="slds-align_absolute-center" size="large" src={icon}></lightning-icon>
-            </lightning-layout-item>
-            <lightning-layout-item flexibility="auto">
-                <strong>{name}</strong>
-                <p>{contactNumber}</p>
-            </lightning-layout-item>
-            <lightning-layout-item flexibility="auto">
-                <div class="slds-text-align_right">
-                    <strong>{device}</strong>
-                    <p>
-                        {usage} of {totalUsage} {unitOfMeasure} used
-                        <template lwc:if={nearLimit}>
-                            <lightning-helptext icon-name="utility:alert" content="Near Limit" alternative-text="Alert" icon-variant="warning"></lightning-helptext>
-                        </template>
-                        <template lwc:elseif={overLimit}>
-                            <lightning-helptext icon-name="utility:warning" content="Over Limit" alternative-text="Warning" icon-variant="error"></lightning-helptext>
-                        </template>
-                    </p>
-                </div>
-            </lightning-layout-item>
-        </lightning-layout>
-    </lightning-card>
+  <lightning-card>
+    <lightning-layout>
+      <lightning-layout-item size="1">
+        <lightning-icon
+          class="slds-align_absolute-center"
+          size="large"
+          src={icon}
+        ></lightning-icon>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto">
+        <strong>{name}</strong>
+        <p>{contactNumber}</p>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto">
+        <div class="slds-text-align_right">
+          <strong>{device}</strong>
+          <p>
+            {usage} of {totalUsage} {unitOfMeasure} used
+            <template lwc:if={nearLimit}>
+              <lightning-helptext
+                icon-name="utility:alert"
+                content="Near Limit"
+                alternative-text="Alert"
+                icon-variant="warning"
+              ></lightning-helptext>
+            </template>
+            <template lwc:elseif={overLimit}>
+              <lightning-helptext
+                icon-name="utility:warning"
+                content="Over Limit"
+                alternative-text="Warning"
+                icon-variant="error"
+              ></lightning-helptext>
+            </template>
+          </p>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
 </template>
