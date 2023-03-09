@@ -39,7 +39,7 @@ export default class PieChart extends LightningElement {
   @api
   createChart(assets, colorMap) {
     if (this.chartInit) {
-      this.updateChartData(assets);
+      this.updateChartData(assets, colorMap);
       return;
     }
     this.chartInit = true;
