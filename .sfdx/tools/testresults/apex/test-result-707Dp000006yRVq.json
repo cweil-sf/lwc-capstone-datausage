@@ -1,0 +1,61 @@
+{
+  "summary": {
+    "outcome": "Passed",
+    "testsRan": 2,
+    "passing": 2,
+    "failing": 0,
+    "skipped": 0,
+    "passRate": "100%",
+    "failRate": "0%",
+    "skipRate": "0%",
+    "testStartTime": "Thu Mar 09 2023 8:56:14 AM",
+    "testExecutionTimeInMs": 254,
+    "testTotalTimeInMs": 254,
+    "commandTimeInMs": 245,
+    "hostname": "https://empathetic-narwhal-sxdup3-dev-ed.trailblaze.my.salesforce.com",
+    "orgId": "00DDp000000IfdTMAS",
+    "username": "cweil@empathetic-narwhal-sxdup3.com",
+    "testRunId": "707Dp000006yRVq",
+    "userId": "005Dp0000018eFXIAY"
+  },
+  "tests": [
+    {
+      "id": "07MDp000000gPCLMA2",
+      "queueItemId": "709Dp000000g3ShIAI",
+      "stackTrace": null,
+      "message": null,
+      "asyncApexJobId": "707Dp000006yRVqIAM",
+      "methodName": "getPlans_givenBillingAccountId_shouldReturnAllPlans",
+      "outcome": "Pass",
+      "apexLogId": null,
+      "apexClass": {
+        "id": "01pDp000000qeHqIAI",
+        "name": "DeviceUsageControllerTest",
+        "namespacePrefix": null,
+        "fullName": "DeviceUsageControllerTest"
+      },
+      "runTime": 215,
+      "testTimestamp": "2023-03-09T13:56:15.000+0000",
+      "fullName": "DeviceUsageControllerTest.getPlans_givenBillingAccountId_shouldReturnAllPlans"
+    },
+    {
+      "id": "07MDp000000gPCMMA2",
+      "queueItemId": "709Dp000000g3ShIAI",
+      "stackTrace": null,
+      "message": null,
+      "asyncApexJobId": "707Dp000006yRVqIAM",
+      "methodName": "getPlans_givenPlanId_shouldReturnUsageOfSpecifiedType",
+      "outcome": "Pass",
+      "apexLogId": null,
+      "apexClass": {
+        "id": "01pDp000000qeHqIAI",
+        "name": "DeviceUsageControllerTest",
+        "namespacePrefix": null,
+        "fullName": "DeviceUsageControllerTest"
+      },
+      "runTime": 39,
+      "testTimestamp": "2023-03-09T13:56:15.000+0000",
+      "fullName": "DeviceUsageControllerTest.getPlans_givenPlanId_shouldReturnUsageOfSpecifiedType"
+    }
+  ]
+}
