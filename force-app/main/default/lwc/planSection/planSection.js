@@ -39,14 +39,16 @@ export default class PlanSection extends LightningElement {
   }
 
   renderedCallback() {
-    this.template
-      .querySelectorAll(".custom-border")
-      .forEach((selector, index) => {
-        selector.style.borderLeftColor = COLORS[index % COLORS.length];
-      });
-    this.template
-      .querySelector("c-pie-chart")
-      .createChart(this.planAssets, this.colorMap);
+    if (!this.isLoading) {
+      this.template
+        .querySelectorAll(".custom-border")
+        .forEach((selector, index) => {
+          selector.style.borderLeftColor = COLORS[index % COLORS.length];
+        });
+      this.template
+        .querySelector("c-pie-chart")
+        .createChart(this.planAssets, this.colorMap);
+    }
   }
 
   @api

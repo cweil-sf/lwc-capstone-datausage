@@ -6,7 +6,6 @@ import usageWatch from "@salesforce/resourceUrl/UsageWatch";
 
 export default class DeviceCard extends LightningElement {
   @api asset;
-  @api colorMap;
   @api type;
 
   name;

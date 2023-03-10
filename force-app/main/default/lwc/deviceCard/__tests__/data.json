@@ -1,0 +1,61 @@
+{
+  "Phone": {
+    "Plan__c": "a01Dp000000oK3eIAE",
+    "Id": "02iDp000000dnj9IAA",
+    "Make_and_Model__c": "iPhone X",
+    "User__c": "Hayward Huddlestone",
+    "Phone_Number_Display__c": "(469) 234-5678",
+    "Device_Type__c": "Phone",
+    "Unlimited_Data__c": true,
+    "Unlimited_Talk__c": true,
+    "Unlimited_Text__c": true,
+    "Usage__r": {
+      "Id": "a02Dp000001Im39IAC",
+      "Allotted_Usage__c": 0,
+      "Current_Usage__c": 18,
+      "Asset__c": "02iDp000000dnj9IAA",
+      "Unit_of_Measure__c": "GB",
+      "Usage_Type__c": "Data"
+    }
+  },
+
+  "Tablet": {
+    "Plan__c": "a01Dp000000oK3eIAE",
+    "Id": "02iDp000000dnjDIAQ",
+    "Make_and_Model__c": "iPad Pro 11",
+    "User__c": "Mada Huddlestone",
+    "Phone_Number_Display__c": "(469) 234-5682",
+    "Device_Type__c": "Tablet",
+    "Unlimited_Data__c": false,
+    "Unlimited_Talk__c": false,
+    "Unlimited_Text__c": false,
+    "Usage__r": {
+      "Id": "a02Dp000001Im3DIAS",
+      "Allotted_Usage__c": 22,
+      "Current_Usage__c": 24,
+      "Asset__c": "02iDp000000dnjDIAQ",
+      "Unit_of_Measure__c": "SMS",
+      "Usage_Type__c": "Text"
+    }
+  },
+
+  "Watch": {
+    "Plan__c": "a01Dp000000oK3eIAE",
+    "Id": "02iDp000000dnjEIAQ",
+    "Make_and_Model__c": "Watch Series 6 - 44mm",
+    "User__c": "Elvis Huddlestone",
+    "Phone_Number_Display__c": "(469) 234-5683",
+    "Device_Type__c": "Wearable",
+    "Unlimited_Data__c": false,
+    "Unlimited_Talk__c": false,
+    "Unlimited_Text__c": false,
+    "Usage__r": {
+      "Id": "a02Dp000001Im3EIAS",
+      "Allotted_Usage__c": 11,
+      "Current_Usage__c": 10,
+      "Asset__c": "02iDp000000dnjEIAQ",
+      "Unit_of_Measure__c": "Minutes",
+      "Usage_Type__c": "Talk"
+    }
+  }
+}
