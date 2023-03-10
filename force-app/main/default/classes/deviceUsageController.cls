@@ -56,4 +56,4 @@ public with sharing class DeviceUsageController {
       throw new AuraHandledException(e.getMessage());
     }
   }
-} 
+}
