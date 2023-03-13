@@ -8,7 +8,11 @@ export default class DataUsage extends LightningElement {
   planData = [];
 
   get hasData() {
-    return this.planData.length > 0;
+    if (this.planData){
+      return this.planData.length > 0;
+    }
+    return false;
+    
   }
 
   connectedCallback() {
