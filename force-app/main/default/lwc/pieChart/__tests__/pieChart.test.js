@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import PieChart from 'c/pieChart';
 import testData from "./data.json";
 import 'jest-canvas-mock';
+// eslint-disable-next-line no-unused-vars
 import Chart from '../../../staticresources/ChartJs.js';
 
 describe('c-pie-chart', () => {
