@@ -1,0 +1,127 @@
+{
+  "Assets": [
+    {
+      "Plan__c": "a01Dp000000oK3eIAE",
+      "Id": "02iDp000000dnj9IAA",
+      "Make_and_Model__c": "iPhone X",
+      "User__c": "Hayward Huddlestone",
+      "Phone_Number_Display__c": "(469) 234-5678",
+      "Device_Type__c": "Phone",
+      "Unlimited_Data__c": true,
+      "Unlimited_Talk__c": true,
+      "Unlimited_Text__c": true,
+      "Usage__r": {
+        "Id": "a02Dp000001Im39IAC",
+        "Allotted_Usage__c": 0,
+        "Current_Usage__c": 18,
+        "Asset__c": "02iDp000000dnj9IAA",
+        "Unit_of_Measure__c": "GB",
+        "Usage_Type__c": "Data"
+      }
+    },
+    {
+      "Plan__c": "a01Dp000000oK3eIAE",
+      "Id": "02iDp000000dnjAIAQ",
+      "Make_and_Model__c": "iPhone 11",
+      "User__c": "Ives Huddlestone",
+      "Phone_Number_Display__c": "(469) 234-5679",
+      "Device_Type__c": "Phone",
+      "Unlimited_Data__c": false,
+      "Unlimited_Talk__c": false,
+      "Unlimited_Text__c": false,
+      "Usage__r": {
+        "Id": "a02Dp000001Im3AIAS",
+        "Allotted_Usage__c": 25,
+        "Current_Usage__c": 18,
+        "Asset__c": "02iDp000000dnjAIAQ",
+        "Unit_of_Measure__c": "GB",
+        "Usage_Type__c": "Data"
+      }
+    },
+    {
+      "Plan__c": "a01Dp000000oK3eIAE",
+      "Id": "02iDp000000dnjBIAQ",
+      "Make_and_Model__c": "iPhone 12",
+      "User__c": "Lesya Huddlestone",
+      "Phone_Number_Display__c": "(469) 234-5680",
+      "Device_Type__c": "Phone",
+      "Unlimited_Data__c": false,
+      "Unlimited_Talk__c": false,
+      "Unlimited_Text__c": false,
+      "Usage__r": {
+        "Id": "a02Dp000001Im3BIAS",
+        "Allotted_Usage__c": 12,
+        "Current_Usage__c": 11,
+        "Asset__c": "02iDp000000dnjBIAQ",
+        "Unit_of_Measure__c": "GB",
+        "Usage_Type__c": "Data"
+      }
+    },
+    {
+      "Plan__c": "a01Dp000000oK3eIAE",
+      "Id": "02iDp000000dnjCIAQ",
+      "Make_and_Model__c": "iPad Pro 11",
+      "User__c": "Jennie Huddlestone",
+      "Phone_Number_Display__c": "(469) 234-5681",
+      "Device_Type__c": "Tablet",
+      "Unlimited_Data__c": false,
+      "Unlimited_Talk__c": false,
+      "Unlimited_Text__c": false,
+      "Usage__r": {
+        "Id": "a02Dp000001Im3CIAS",
+        "Allotted_Usage__c": 17,
+        "Current_Usage__c": 8,
+        "Asset__c": "02iDp000000dnjCIAQ",
+        "Unit_of_Measure__c": "GB",
+        "Usage_Type__c": "Data"
+      }
+    },
+    {
+      "Plan__c": "a01Dp000000oK3eIAE",
+      "Id": "02iDp000000dnjDIAQ",
+      "Make_and_Model__c": "iPad Pro 11",
+      "User__c": "Mada Huddlestone",
+      "Phone_Number_Display__c": "(469) 234-5682",
+      "Device_Type__c": "Tablet",
+      "Unlimited_Data__c": false,
+      "Unlimited_Talk__c": false,
+      "Unlimited_Text__c": false,
+      "Usage__r": {
+        "Id": "a02Dp000001Im3DIAS",
+        "Allotted_Usage__c": 22,
+        "Current_Usage__c": 15,
+        "Asset__c": "02iDp000000dnjDIAQ",
+        "Unit_of_Measure__c": "GB",
+        "Usage_Type__c": "Data"
+      }
+    },
+    {
+      "Plan__c": "a01Dp000000oK3eIAE",
+      "Id": "02iDp000000dnjEIAQ",
+      "Make_and_Model__c": "Watch Series 6 - 44mm",
+      "User__c": "Elvis Huddlestone",
+      "Phone_Number_Display__c": "(469) 234-5683",
+      "Device_Type__c": "Wearable",
+      "Unlimited_Data__c": false,
+      "Unlimited_Talk__c": false,
+      "Unlimited_Text__c": false,
+      "Usage__r": {
+        "Id": "a02Dp000001Im3EIAS",
+        "Allotted_Usage__c": 6,
+        "Current_Usage__c": 3,
+        "Asset__c": "02iDp000000dnjEIAQ",
+        "Unit_of_Measure__c": "GB",
+        "Usage_Type__c": "Data"
+      }
+    }
+  ],
+
+  "ColorMap": {
+    "02iDp000000dnj9IAA": "#96F2EE",
+    "02iDp000000dnjAIAQ": "#68CEEE",
+    "02iDp000000dnjBIAQ": "#2D9CED",
+    "02iDp000000dnjCIAQ": "#0E6ECE",
+    "02iDp000000dnjDIAQ": "#073E92",
+    "02iDp000000dnjEIAQ": "#051C61"
+  }
+}

@@ -39,7 +39,7 @@ export default class PlanSection extends LightningElement {
   }
 
   renderedCallback() {
-    if (!this.isLoading) {
+    if (!this.isLoading && this.expanded) {
       this.template
         .querySelectorAll(".custom-border")
         .forEach((selector, index) => {
