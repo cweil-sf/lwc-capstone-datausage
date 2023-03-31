@@ -69,7 +69,7 @@ export default class PlanSection extends LightningElement {
       this.icon = "utility:switch";
       this.completedDataProcessing(this.privatePlan, this.type);
     } else {
-      this.icon = "utility:chevronup";
+      this.icon = "utility:chevronright";
     }
   }
 
