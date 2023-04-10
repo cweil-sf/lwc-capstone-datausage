@@ -108,4 +108,9 @@ export default class PlanSection extends LightningElement {
         this.talkButtonVariant = "Neutral";
     }
   }
+
+  dispatchErrorEvent() {
+    const errorEvent = new CustomEvent("error");
+    this.dispatchEvent(errorEvent);
+  }
 }

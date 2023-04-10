@@ -51,8 +51,8 @@ export default class PieChart extends LightningElement {
         this.chart = new window.Chart(context, this.chartConfig);
         this.updateChartData(assets, colorMap);
       })
-      .catch((error) => {
-        console.warn(error);
+      .catch(() => {
+        this.dispatchErrorEvent();
       });
   }
 
@@ -73,5 +73,10 @@ export default class PieChart extends LightningElement {
     this.chart.options.elements.center.text =
       total + " " + assets[0].Usage__r.Unit_of_Measure__c;
     this.chart.update();
+  }
+
+  dispatchErrorEvent() {
+    const errorEvent = new CustomEvent("error");
+    this.dispatchEvent(errorEvent);
   }
 }

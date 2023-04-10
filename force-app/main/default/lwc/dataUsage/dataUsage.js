@@ -44,11 +44,15 @@ export default class DataUsage extends LightningElement {
         }
       })
       .catch(() => {
-        this.hasError = true;
+        this.handleError();
       });
   }
 
   getNewTypeData(event) {
     this.callGetPlans(event.detail.plan, event.detail.value);
+  }
+
+  handleError() {
+    this.hasError = true;
   }
 }
