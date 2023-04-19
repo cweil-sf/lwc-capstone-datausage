@@ -1,12 +1,18 @@
 import { LightningElement, api } from "lwc";
 
 const COLORS = [
-  "#96F2EE",
-  "#68CEEE",
-  "#2D9CED",
-  "#0E6ECE",
-  "#073E92",
-  "#051C61"
+  "#003366",
+  "#003399",
+  "#0033CC",
+  "#336699",
+  "#006699",
+  "#0066CC",
+  "#3399CC",
+  "#0099CC",
+  "#66CCCC",
+  "#6699CC",
+  "#3366FF",
+  "#0000FF"
 ];
 
 export default class PlanSection extends LightningElement {
